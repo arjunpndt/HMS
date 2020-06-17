@@ -1,0 +1,84 @@
+<!DOCTYPE html> <html>  <head>   <meta name="viewport"
+content="width=device-width, initial-scale=1"> <link
+href="https://fonts.googleapis.com/css?family=Lobster&display=swap"
+rel="stylesheet"> <link rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script> <script
+src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+crossorigin="anonymous"></script> <script
+src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+crossorigin="anonymous"></script> <link rel="stylesheet"
+href="https://fonts.googleapis.com/css?family=Lacquer&display=swap" > <link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <script
+src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style type="text/css"> body{ background-color: #6495ED; color: black;
+font-family: 'Lobster', cursive; padding: 2px;  } table{ background-color:
+blue; width:100%; height: 400px; box-shadow: 10px 10px 5px 4px #aaaaaa;
+border: 0px;     } table select { background-color: white; color: white;
+width: 20%; height: 100% } .text{ color: black; height: 90%; width:90%; }
+.number{ color:black; height: 90%; width:90%; } input { border:solid white
+2px; border-radius: 4px; box-sizing: 50%; } #SUBMIT{ color: black; width:
+100px; height: 40px; }   #tab{ display: none; }  #kids{ padding: 0px; margin:
+10px; } label{ color: white; font-family: &#39;Lacquer&#39; } .in:hover{
+background-color: white; color: black; width: 95%; height: 95%; } .in:focus{
+background-color: white; color: black; width: 95%; height: 95%; }
+#branchselect{ display: none; }        </style> <script
+type="text/javascript">    function onChange(){
+document.getElementById("branchselect").style.display = "block";
+
+    var s1=document.getElementById("course").value;   
+      var brancharray=[{
+  "id": 1,
+  "first_name": "Rafaela",
+  "last_name": "Gerant",
+  "email": "rgerant0@constantcontact.com"
+}, {
+  "id": 2,
+  "first_name": "Giffie",
+  "last_name": "Knowlys",
+  "email": "gknowlys1@printfriendly.com"
+}, {
+  "id": 3,
+  "first_name": "Terence",
+  "last_name": "Fawcett",
+  "email": "tfawcett2@biblegateway.com"
+}, {
+  "id": 4,
+  "first_name": "Florencia",
+  "last_name": "Chimes",
+  "email": "fchimes3@quantcast.com"
+}, {
+  "id": 5,
+  "first_name": "Clemmie",
+  "last_name": "St. Quintin",
+  "email": "cstquintin4@macromedia.com"
+}];
+   console.log(brancharray.length)
+    var string= " <option selected disabled>Doctor List</option>";
+    for(i=0;i<brancharray.length;i++){
+      string=string+"<option>"+brancharray[i].first_name+"</option>";
+    }console.log(string);
+    string="<select name='branch' id='branchselect'>"+string+"</string>";
+    document.getElementById('branchselect').innerHTML=string;    
+    }
+   
+  </script>
+</head>
+<body>
+   <br><br><br>
+ <table class="table " style="border-collapse: collapse; border-bottom-width:0px;">
+     <tbody style="font-family: &#39;Lacquer&#39;"><tr class="row">
+      <label for="course">button</label>
+    <button id="course" name="course" class="course form-control " onclick="onChange()">doctor</button>
+    <label for="branchselect" >dynamic dropdown</label>
+    <select name="branch" id="branchselect" class="branch form-control"  >
+      
+    </select>
+</body>
+</html>

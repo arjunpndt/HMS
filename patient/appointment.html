@@ -1,0 +1,91 @@
+
+
+
+</div>
+<div class="container-fluid">
+   <div class="modal-dialog modal-dialog" role="document">
+
+
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: beige;">
+        <h1  style="font-size: 20px;" class="modal-title" id="exampleModalLongTitle">Please fill below details for appointment request</h1>
+        
+      </div>
+      <div class="modal-body">
+
+
+        <div class="row">
+          <div  class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;"> 
+              <b>Preferred Date</b><b style="color: red;">*</b>
+          </div>
+          <div class="col-0 col-sm-8 col-md-8 col-lg-8" style="padding:6px;">         
+            <input style="width: 80%;" class="form-control shadow-sm bg-white rounded" id="appointment_date" type="date" name="" placeholder="Preferred Date" required>
+          </div>         
+        </div>
+        <div class="row">
+          <div  class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;"> 
+              <b>Preferred Time </b><b style="color: red;">*</b>
+          </div>
+          <div class="col-0 col-sm-8 col-md-8 col-lg-8" style="padding:6px;">         
+            <input style="width: 80%;" class="form-control shadow-sm bg-white rounded" id="appointment_time" type="time" name="" placeholder="Preferred Time " required>
+          </div>        
+        </div>
+
+         <div class="row">
+          <div  class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;"> 
+              <b>Problem</b><b style="color: red;">*</b>
+          </div>
+          <div class="col-0 col-sm-8 col-md-8 col-lg-8" style="padding:6px;">         
+            <input style="width: 80%;" class="form-control shadow-sm bg-white rounded" id="problem" type="texy" name="" placeholder="Problem" required>
+          </div>         
+        </div>
+
+
+
+    
+
+                <div class="row">
+                  <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+              <b>Specialist in</b><b style="color: red;">*</b>
+          </div>
+          <div class="col-0 col-sm-8 col-md-8 col-lg-8" style="padding:6px;">
+
+                       <select name="cars"  id="SPECIALZATION" class="btn-sm " style="background-color: gray;" required>
+                        <option value=""  disabled="" selected="" id="Specialist_in" >Specialist in</option>
+                        <option value="Neurologist">Neurologist</option>
+                        <option value="Homoeophaty">Homoeophaty</option>
+                        <option value="Dentist">Dentist</option>
+                        <option value="Ayurvedic">Ayurvedic</option>
+                       </select>
+          </div>                
+                </div>
+
+
+
+                <div class="row">
+                  <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+              <b>Prefered Location</b><b style="color: red;">*</b>
+          </div>
+          <div class="col-0 col-sm-8 col-md-8 col-lg-8" style="padding:6px;">
+
+                       <select name="cars"  id="Preferred_city" class="btn-sm " style="background-color: gray;" required>
+                        <option value=""  disabled="" selected="" >City</option>
+                        <option value="delhi">City Hospital,Delhi</option>
+                        <option value="noida">City Hospital,Noida</option>
+                        <option value="meerut">City Hospital,Meerut</option>
+                        <option value="lucknow">City Hospital,Lucknow</option>
+                       </select>
+          </div>                
+                </div>
+        
+
+       
+      </div>
+      <div class="modal-footer">
+<!--         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+ -->        <button type="button" class="btn btn-primary" onclick="appointment()">submt</button>
+      </div>
+    </div>
+  </div>
+</div>
+

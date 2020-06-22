@@ -1,0 +1,246 @@
+<html>
+<head>
+<title>Dynamic Table</title>
+
+
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js" integrity="sha256-0YzDSJS0qH+wpvug+Im1cMB9CX919NMtHj0d2VVHPp4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.26/angular-ui-router.min.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.26/angular-ui-router.min.js"></script>
+
+<style type="text/css">
+	
+table {table-collapse:collapse; border-spacing:0 ;border-radius:10px;}
+/*td {border:0.5px groove black; padding:7px}
+th {border:0.5px groove black; padding:7px}*/
+.ctr {text-align:center}
+</style>
+<script language="JavaScript" type="text/javascript">
+// Table data -- an array of objects
+var jsData=[{
+  "PATIENT_FIRST_NAME": "Cayla",
+  "patient_appointment_details__appointment_date": "3/24/2020",
+  "patient_appointment_details__appointment_time": "11:54",
+  "patient_appointment_details__preferred_location": "Huayuan",
+  "patient_appointment_details__problem": "Browsebug",
+  "patient_appointment_details__speciality": "Twitterworks",
+  "id": "111",
+  "PATIENT_LAST_NAME": "Suett"
+}, {
+  "PATIENT_FIRST_NAME": "Lissa",
+  "patient_appointment_details__appointment_date": "1/23/2020",
+  "patient_appointment_details__appointment_time": "22:47",
+  "patient_appointment_details__preferred_location": "Dve Mogili",
+  "patient_appointment_details__problem": "Realblab",
+  "patient_appointment_details__speciality": "Realbuzz",
+  "id": "180",
+  "PATIENT_LAST_NAME": "McShirrie"
+}, {
+  "PATIENT_FIRST_NAME": "Kippar",
+  "patient_appointment_details__appointment_date": "3/21/2020",
+  "patient_appointment_details__appointment_time": "9:52",
+  "patient_appointment_details__preferred_location": "Mosetse",
+  "patient_appointment_details__problem": "Edgepulse",
+  "patient_appointment_details__speciality": "Flashset",
+  "id": "180",
+  "PATIENT_LAST_NAME": "Mayell"
+}, {
+  "PATIENT_FIRST_NAME": "Amberly",
+  "patient_appointment_details__appointment_date": "3/18/2020",
+  "patient_appointment_details__appointment_time": "3:04",
+  "patient_appointment_details__preferred_location": "Khursā",
+  "patient_appointment_details__problem": "Twinder",
+  "patient_appointment_details__speciality": "Kimia",
+  "id": "12",
+  "PATIENT_LAST_NAME": "Hegley"
+}]
+
+
+
+function pennding_appointmemt(){
+	document.getElementById('pennding_appointmemt_details_table').style.display="block";
+	 let xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://7bee82e006d2.ngrok.io/Receptionist_interface/pending_appointments/", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function() {
+         console.log("checked_first");
+
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log("checked");
+                  jsData =   JSON.parse(this.responseText);
+                 console.log(jsData);
+                 console.log("checked done");
+                 console.log(jsData.length);
+                 // drawTable('pennding_appointmemt_details_table_data');
+                
+
+            }
+        };
+        
+
+        xhr.send();
+        console.log("end");
+         drawTable('pennding_appointmemt_details_table_data');
+       
+}
+
+  
+				
+function drawTable(tbody) {
+    var tr, td;
+    tbody = document.getElementById(tbody);
+   
+    for (var i = 0; i < jsData.length; i++) {
+        tr = tbody.insertRow(tbody.rows.length);
+        td = tr.insertCell(tr.cells.length);
+        td.setAttribute("class","today");
+        td.innerHTML = jsData[i].PATIENT_FIRST_NAME +" "+jsData[i].PATIENT_LAST_NAME;
+        td = tr.insertCell(tr.cells.length);        
+        td.innerHTML = jsData[i].patient_appointment_details__appointment_date ;
+        td = tr.insertCell(tr.cells.length);
+        td.innerHTML = jsData[i].patient_appointment_details__appointment_time;
+        td = tr.insertCell(tr.cells.length);
+        td.innerHTML = jsData[i].patient_appointment_details__problem;
+        td = tr.insertCell(tr.cells.length);
+        td.setAttribute("class", "ctr");
+        td.innerHTML = jsData[i].patient_appointment_details__preferred_location;
+        td = tr.insertCell(tr.cells.length);
+        td.setAttribute("class", "ctr");
+        td.innerHTML = jsData[i].patient_appointment_details__speciality;
+        td = tr.insertCell(tr.cells.length);
+        td.setAttribute("class", "ctr");
+        var f_id= jsData[i].id;
+        td.innerHTML = f_id;
+        var ii=f_id;        
+        td = tr.insertCell(tr.cells.length);
+        td.setAttribute("class", "ctr");
+
+        td.innerHTML =  td.innerHTML + '<button class="btn btn-primary" id="row'+ii+'" onclick="Approve('+ii+')" >Approve </button>';
+        td = tr.insertCell(tr.cells.length);
+        td.setAttribute("class", "ctr");
+        td.innerHTML =  td.innerHTML + "<button class='btn btn-warning' onclick='Update()' >Update </button>";
+        td = tr.insertCell(tr.cells.length);
+        td.setAttribute("class", "ctr");
+        td.innerHTML =  td.innerHTML + '<button class="btn btn-danger" onclick="Reject('+ii+')" >Reject</button>';
+    }
+}
+
+
+
+
+function Approve(patient_id){
+	 // this.name = name;
+	alert(patient_id);
+	console.log("arjun");
+         let DOCTOR_FIRST_NAME = document.querySelector('#first_name'); 
+          let DOCTOR_LAST_NAME = document.querySelector('#last_name');
+          let PASSWORD = document.querySelector('#password')     
+          let xhr = new XMLHttpRequest();
+      
+          xhr.open("POST","", true); 
+          xhr.setRequestHeader("Content-Type", "application/json"); 
+
+          xhr.onreadystatechange = function () { 
+              if (xhr.readyState === 4 && xhr.status === 200) { 
+
+                  result.innerHTML = JSON.parse(Request.response); 
+
+
+              } 
+          };  
+          var data = JSON.stringify({"DOCTOR_FIRST_NAME" : DOCTOR_FIRST_NAME.value, "DOCTOR_LAST_NAME" : DOCTOR_LAST_NAME.value, "PASSWORD" : PASSWORD.value}); 
+
+          xhr.send(data); 
+          console.log(data);
+          /* window.location = "patient_registration.html";*/
+      }
+      
+
+      
+
+
+function Reject(patient_id){
+
+	 this.name = name;
+	alert(patient_id);
+	// document.getElementById("row'+parient_id'")
+
+	console.log("arjun");
+          
+          let PATIENT_FIRST_NAME = patient_id; 
+          let PATIENT_LAST_NAME="rejecton by receptionist";
+          
+          let xhr2 = new XMLHttpRequest();
+      
+          xhr2.open("POST","", true); 
+          xhr2.setRequestHeader("Content-Type", "application/json"); 
+
+          xhr2.onreadystatechange = function () { 
+              if (xhr.readyState === 4 && xhr.status === 200) { 
+
+                  result.innerHTML = JSON.parse(Request.response); 
+
+
+              } 
+          };  
+          var data_ = JSON.stringify({"PATIENT_FIRST_NAME" : PATIENT_FIRST_NAME, "PATIENT_LAST_NAME" : PATIENT_LAST_NAME}); 
+            
+          xhr.send(data_); 
+          console.log(data_)
+          /* window.location = "patient_registration.html";*/
+      }      
+
+</script>
+<style>
+	#row111{
+		background-color: white;
+		color:red;
+	}
+	tr{
+		background-color: white;
+	}
+	#data{
+		color:;
+	}
+	#pennding_appointmemt_details_table{
+		display: none;
+		}
+</style>
+</head>
+<body>
+<body>
+<h1>Receptionlist</h1>
+<hr>
+<button onclick="pennding_appointmemt()">pennding_appointmemt</button>
+<div id="pennding_appointmemt_details_table" class="table-responsive text-nowrap">
+<center>
+<table id="" class="shadow bottom p-3 mb-5  rounded table table-striped">
+<thead id="data">
+<tr><th>Name</th>
+    <th>Date</th>
+    <th>time</a></th>
+    <th>Problem</th>
+    <th>City</th>
+    <th>Doctor_Specialisaton</th>
+    <th>ID</th>
+    <th>Approve</th>
+    <th>Update</th>
+    <th>Reject</th>
+</tr>
+</thead>
+<tbody id="pennding_appointmemt_details_table_data"></tbody>
+</table>
+</center>
+</div>
+</body>
+</body>
+</html>

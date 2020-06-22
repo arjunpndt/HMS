@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head >
+
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+
+
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.26/angular-ui-router.min.js"></script>
+
+<script type="text/javascript" src="patient_registration.js"></script>
+<link  href="patient_profile.html">
+
+	<style type="text/css">
+		
+
+        body{
+			background-color:whitesmoke;
+			background-repeat: no-repeat;
+			background-size: 100% 200%;
+		}
+		#page{
+			width: 35%;
+			height: 100%
+		}
+		/*#login{
+			padding: 0px;
+			margin-top: 0%;
+			font-family: 'Trade Winds', ;
+            font-size: 30px;
+            background-color: #D3D3D3;
+            color: black;
+            border-radius: 2px;
+
+		}*/
+		#loginpage{
+			/*font-family: 'Trade Winds', ;*/
+			font-family: 'Trade Winds' ;
+			/*font-family: 'Yeon Sung' ;*/
+			/*font-family: &#39;Lacquer&#39;*/
+		}
+		input{
+			width: 300px;
+			height: 50px;
+			border-radius: 10px;
+		}
+		#images{
+			border-radius: 50%;
+		}
+        #id{
+        	background-color: black;
+        	color: white;
+        }
+        .in{
+        	 
+        }
+        .in:hover{
+        	background-color: ;
+        	color: white;
+        	width: 370px;
+        	height: 44px;
+        }
+        .in:focus {
+         background-color: black;
+        	color: white;
+        	width: 370px;
+            height: 44px;   
+         }
+         #login{
+         	width: 100px;
+         	background-color: goldenrod;
+         	color: black;
+         }
+         #login:hover{
+         	width:110px;
+         	background-color: red;
+         	color: white;
+
+         }
+         #save_password{
+          display: block;
+         }
+	</style>
+
+
+<script type="text/javascript">
+	
+
+// for trigger button through Enter
+addEventListener("keyup", function(event) {
+  if(event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("login").click();
+  }
+});
+
+
+   var Response_data;
+  
+   function sendJSON(){ 
+    console.log("arjun");
+          
+          let PATIENT_FIRST_NAME = document.querySelector('#first_name'); 
+          let PATIENT_LAST_NAME = document.querySelector('#last_name'); 
+          let PASSWORD = document.querySelector('#Password')     
+          let xhr = new XMLHttpRequest();
+      
+          xhr.open("POST","http://ee1da01d8207.ngrok.io/Patient_interface/Patient_login/", true); 
+          xhr.setRequestHeader("Content-Type", "application/json"); 
+
+          xhr.onreadystatechange = function () { 
+              if (xhr.readyState === 4 && xhr.status === 200) {
+
+                 Response_data =   JSON.parse(this.responseText);
+                 console.log("Response_data");
+                  document.getElementById("demo").innerHTML =Response_data[0].PATIENT_FIRST_NAME;
+
+                  document.getElementById("demo2").innerHTML =Response_data[0].PATIENT_LAST_NAME;
+
+                   if (Response_data=="wrong") {
+            alert("not regisstered yet");
+            return false;
+          }
+          else{
+           
+            localStorage.setItem("patient_first_name",Response_data[0].PATIENT_FIRST_NAME);
+            localStorage.setItem("patient_last_name",Response_data[0].PATIENT_LAST_NAME);
+            localStorage.setItem("patient_father_name",Response_data[0].FATHER_NAME);
+            localStorage.setItem("patient_mother_name",Response_data[0].MOTHER_NAME);
+            localStorage.setItem("patient_gender",Response_data[0].GENDER);
+            localStorage.setItem("patient_blood_group",Response_data[0].BLOOD_GRP);
+            localStorage.setItem("patient_dob",Response_data[0].DOB);
+            localStorage.setItem("patient__height",Response_data[0].HEIGHT);
+            localStorage.setItem("patient_weight",Response_data[0].WEIGHT);
+            localStorage.setItem("patient_martial_status",Response_data[0].MARITAL_STATUS);
+            localStorage.setItem("patient_anemia",Response_data[0].Anemia);
+            localStorage.setItem("patient_asthma",Response_data[0].Asthma);
+            localStorage.setItem("patient_bronchitis",Response_data[0].Bronchitis);
+            localStorage.setItem("patient_chickenpox",Response_data[0].Chickenpox);
+            localStorage.setItem("patient_diabeties",Response_data[0].Diabetes);
+            localStorage.setItem("patient_pneumonia",Response_data[0].Pneumonia);
+            localStorage.setItem("patient_thyroid",Response_data[0].Thyroid);
+            localStorage.setItem("patient_ulcer",Response_data[0].Ulcer);
+            localStorage.setItem("patient_other",Response_data[0].other);
+            localStorage.setItem("patient_street_address",Response_data[0].STREET_ADDRESS);
+            localStorage.setItem("patient_city",Response_data[0].CITY);
+            localStorage.setItem("patient_state",Response_data[0].STATE);
+            localStorage.setItem("patient_postal_code",Response_data[0].POSTAL_CODE);
+            localStorage.setItem("patient_country",Response_data[0].Country);
+            localStorage.setItem("patient_mobile",Response_data[0].MOBILE_NO);
+            localStorage.setItem("patient_adhaar",Response_data[0].AADHAR_NO);
+            localStorage.setItem("patient_mail",Response_data[0].MAIL); 
+           
+            localStorage.setItem("patient_id",Response_data[0].id);
+             var mmm=localStorage.getItem("patient_id");          
+            console.log(mmm);
+            localStorage.setItem("patient_password",Response_data[0].PASSWORD);           
+            // document.getElementById('save_password').style.display="block";
+            window.location = "patient_registration.html";
+
+
+          }
+
+
+
+              } 
+          };  
+          var data = JSON.stringify({"PATIENT_FIRST_NAME" : PATIENT_FIRST_NAME.value, "PATIENT_LAST_NAME" : PATIENT_LAST_NAME.value, "PASSWORD" : PASSWORD.value}); 
+            
+          xhr.send(data); 
+          console.log(data)
+          // localStorage.setItem("patient_first_name",Response_data[0].PATIENT_FIRST_NAME);
+         
+          console.log("end");
+           // window.location = "patient_registration.html";
+      }
+      
+
+
+
+     
+ 
+</script>
+
+
+
+
+</head>
+<body>
+  
+	<form  method="get">
+		<div class="container" style="padding-top: 5%;">
+			<div class="row">
+	<div class="col-sm-2 col-md-4  col-lg-4 col-xl-4  "></div>
+<div id="page"  class="col-sm-8 col-md-4  col-lg-4 col-xl-4">
+	<!-- <p id="login">Login Page</p><br> -->
+	<!-- <p>User Name</p> -->
+	 <center>
+	 
+     <h1 id="loginpage";>login page</h1></center>
+	<br>
+	<div >
+    </div>
+	
+    <input type="text"   class="form-control in" id="first_name" name="name"  placeholder="First Name" autocomplete="off"><br>
+    <input type="text"   class="form-control in" id="last_name" name="name" placeholder="Last Name" autocomplete="off"><br>
+	<!-- <p>User Id</p> -->
+	<input type="password" class="form-control in" id="Password" name="Password"  placeholder="Password" autocomplete="off"><br><br>
+	
+	
+	
+	
+	<center>
+		<button type="button" class="btn" id="login" onclick="sendJSON()">LOGIN</button>
+	</center><br>
+
+
+
+  <!-- Button trigger modal -->
+<div data-toggle="modal" data-target="#centralModalSm" onclick="">
+  <a ui-sref='patient_profile()'>SAVE Password</a>
+</div>
+
+
+
+<!-- Central Modal Small -->
+<div class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+
+  <!-- Change class .modal-sm to change the size of the modal -->
+  <div class="modal-dialog modal-sm" role="document">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Save Password</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+       
+        <button type="button" class="btn btn-primary btn-sm" ><a ui-sref="patient_profile()">Save</a></button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Central Modal Small -->
+	
+</div>
+<div class="col-sm-2 col-md-4  col-lg-4 col-xl-4 "></div>
+<P id='demo'></P>
+<P id='demo2'></P>
+</div>
+</div>
+</form> 
+</body>
+</html>

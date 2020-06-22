@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Patient_registration</title>
+    <!-- bootstrap -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+
+    <!-- mdbootstrap   css-->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
+
+    <!-- mdbootstrap   js-->
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>
+
+
+
+    <script type="text/javascript" src="patient_registration.js"></script>
+
+
+
+    <!-- fontfamily -->
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+
+
+
+
+    <style>
+        #other_d {
+            display: none;
+        }
+        
+        #other_d:hover {
+            display: block;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="border-top: 1px solid lightgray;background-color: lightblue; ">
+
+        <button class="navbar-toggler btn-outline-primary " type="button" data-toggle="collapse" data-target="  #navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">  
+     <span class="navbar-toggler-icon"></span>  
+    </button>
+        <div class="collapse navbar-collapse" id="navbarText" >
+            <ul class="navbar-nav mr-auto"></ul>
+            <ul class="navbar-nav   mt-2 mt-lg-0 ">
+                <li class="nav-item" style=" padding-right: 10px; ">
+                    <a href="" style="color: black; ">Health Professonals</a>
+                </li>
+                <li class="nav-item" style="padding-right: 10px;">
+                    <a id="cart" href="" style="color: black;">Careers</a>
+                </li>
+                <li class="nav-item" style=" padding-right: 10px;">
+                    <a id="about" ui-sref='contactus()'>About</a>
+                </li>
+                <li class="nav-item" style=" padding-right: 10px;">
+                    <a id="about" href="../portal/HMS_portal.html">Portal</a>
+                </li>
+                <li class="nav-item" style=" padding-right: 0px;">
+                    <a class="nav-link disabled" style="padding:0px; margin:0px;" href="#">Call Now</a>
+                </li>
+                <li class="nav-item" style=" padding-right: 10px;">
+                    <a class="" style="padding:0px; margin:0px;" href="#"><b>8006463500</b></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <form></form>
+    <div class="container-fluid form-group">
+        <div class="row">
+            <div class="col-0 col-md-2 col-lg-2 col-sm-1 "></div>
+            <div class="col-12 col-md-8 col-lg-8 col-sm-10 shadow-lg p-3 mb-5 bg-white rounded" style=" margin-top: 2%;">
+                <h1 style="font-size: 300%;  margin-left:3%;  margin-right:3%; font-family: 'Bangers', cursive;">Patient Registration Form</h1>
+                <h1 style="font-size:100%; border-bottom: 2px solid darkgrey; margin-bottom: 20px;  font-family: 'Bangers', cursive; margin-left:3%;  margin-right:3%;  padding-bottom: 10px;">Thank you for applying. Please complete this patient registration form with your information and a doctor will contact you shortly.</h1>
+                <div class="row" style="">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding: 5px; padding-left: 4.5%;">
+                        <b>Patient's name</b><b style="color: red;">*</b>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4" style="padding:6px; ">
+                        <input style="width: 80%;" class="form-control shadow-sm bg-white rounded" id="first_name" type="text" name="patient's_first_name" placeholder="First" required>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4" style="padding:6px;">
+                        <input style="width: 80%;;" type="text" class="form-control shadow-sm bg-white rounded" name="patient's_last_name" id="last_name" placeholder="Last" required>
+                    </div>
+                </div>
+
+                <!-- parents -->
+
+
+                <div class="row">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+                        <b>Father's Name</b><b style="color: red;">*</b>
+                    </div>
+                    <div class="col-0 col-sm-8 col-md-8 col-lg-8" style="padding:6px;">
+                        <input style="width: 80%;" class="form-control shadow-sm bg-white rounded" id="patient_father" type="text" name="father_name" placeholder="Father's Name" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+                        <b>Mother's Name</b><b style="color: red;">*</b>
+                    </div>
+                    <div class="col-0 col-sm-8 col-md-8 col-lg-8" style="padding:6px;">
+                        <input style="width: 80%;" class="form-control shadow-sm bg-white rounded" id="patient_mother" type="text" name="mother_name" placeholder="Mother's Name" required>
+                    </div>
+                </div>
+
+                <!-- Gender -->
+
+                <div class="row">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+                        <b>Gender</b><b style="color: red;">*</b>
+                    </div>
+                    <div class="col-0 col-sm-8 col-md-8 col-lg-8" style="padding:6px;" class="">
+                        <div class="row">
+                            <div class="col-0 col-sm-4 col-md-4 col-lg-4">
+                                <div class="">
+                                    <span> <input type="radio" class="Gender" value="male" id="male" name="Gender">
+                                 <label class="" for="male">Male</label></span>
+                                </div>
+                            </div>
+                            <div class="col-0 col-sm-4 col-md-4 col-lg-4">
+                                <div class="">
+                                    <span> <input type="radio" class="" id="female" value="femlae" name="Gender">
+                                 <label class="" for="female">Female</label></span>
+                                </div>
+                            </div>
+                            <div class="col-0 col-sm-4 col-md-4 col-lg-4">
+                                <div class="">
+                                    <span> <input type="radio" value="other" class="" id="other" name="Gender">
+                                 <label class="" for="other">Other</label></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- blood group -->
+
+                <div class="row">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+                        <b>Blood Group</b><b style="color: red;">*</b>
+                    </div>
+                    <div class="col-0 col-sm-8 col-md-8 col-lg-8" style="padding:6px;">
+
+                        <select name="cars" id="patient_blood" class="btn-sm btn-primary" style="background-color: gray;">
+                       	<option value=""  disabled="" selected="" id="Blood_group">Bloodgroup</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                         <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                       </select>
+                    </div>
+                </div>
+
+                <!-- DOB -->
+
+
+                <div class="row">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+                        <b>Date Of Birth</b><b style="color: red;">*</b>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4" style="padding:6px;">
+                        <input style="width: 80%;" class="form-control shadow-sm bg-white rounded" id="patient_dob" type="date" name="" placeholder="Date Of Birth" required>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4"></div>
+                </div>
+
+                <!-- height -->
+
+                <div class="row">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+                        <b>Height</b><b style="color: red;">*</b>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4" style="padding:6px;">
+                        <input style="width: 80%;" class="form-control shadow-sm bg-white rounded" id="patient_height" type="number" name="" placeholder="Height" required>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4"></div>
+                </div>
+
+
+                <!-- weight -->
+
+                <div class="row">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+                        <b>Weight</b><b style="color: red;">*</b>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4" style="padding:6px;">
+                        <input style="width: 80%;" class="form-control shadow-sm bg-white rounded" id="patient_weight" type="number" name="" placeholder="Weight" required>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4"></div>
+                </div>
+
+
+                <!-- MARITAL -->
+
+
+                <div class="row">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+                        <b> Marital Status</b><b style="color: red;">*</b>
+                    </div>
+                    <div class="col-0 col-sm-8 col-md-8 col-lg-8" style="padding:6px;" class="">
+                        <div class="row">
+
+                            <div class="col-0 col-sm-4 col-md-4 col-lg-4">
+                                <div class="">
+                                    <span> <input type="radio"  value="single" id="single" name="marital_status">
+                                 <label class="" for="single">Single</label></span>
+                                </div>
+                            </div>
+                            <div class="col-0 col-sm-4 col-md-4 col-lg-4">
+                                <div class="">
+                                    <span> <input type="radio" id="married" value="married" name="marital_status">
+                                 <label class="" for="married">Married</label></span>
+                                </div>
+                            </div>
+
+                            <div class="col-0 col-sm-4 col-md-4 col-lg-4"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- mediacl history -->
+
+
+                <div class="row">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+                        <b>Medical History</b>
+                    </div>
+                    <div class="col-0 col-sm-8 col-md-8 col-lg-8" style="padding:6px;">
+                        <form>
+                            <input type="checkbox" name="Anemia" id="Anemia" unchecked> Anemia<br>
+                            <input type="checkbox" name="medical_history" id="Asthma" value="Asthma"> VAsthma<br>
+                            <input type="checkbox" name="medical_history" id="Bronchitis" value="Bronchitis"> Bronchitis<br>
+                            <input type="checkbox" name="medical_history" id="Chickenpox" value="Chickenpox"> Chickenpox<br>
+                            <input type="checkbox" name="medical_history" id="Diabetes" value="Diabetes"> Diabetes<br>
+                            <input type="checkbox" name="medical_history" id="Pneumonia" value="Pneumonia"> Pneumonia<br>
+                            <input type="checkbox" name="medical_history" id="Thyroid_Disease" value="Thyroid_Disease" /> Mint<br>
+                            <input type="checkbox" name="medical_history" id="Ulcer" value="Ulcer"> Ulcer
+                        </form>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 20px; margin-top: 0px;">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+                    </div>
+                    <div class="col-0 col-sm-8 col-md-8 col-lg-8" style="padding:6px;">
+                        <input style="width: 90%;" class="form-control shadow-sm bg-white rounded" id="other_disease" type="text" name="other_disease" placeholder="Other Disease">
+                    </div>
+                </div>
+
+
+                <!-- address -->
+
+
+                <div class="row">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+                        <b>Patient's Address</b><b style="color: red;">*</b>
+                    </div>
+                    <div class="col-0 col-sm-8 col-md-8 col-lg-8" style="padding:6px;">
+                        <input style="width: 90%;" class="form-control shadow-sm bg-white rounded" id="street_address" type="text" name="streer_address" placeholder="Street Address" required>
+                    </div>
+                </div>
+
+
+                <div class="row" style="">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding: 5px; padding-left: 4.5%;">
+
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4" style="padding:6px; ">
+                        <input style="width: 80%;" class="form-control shadow-sm bg-white rounded" id="city" type="text" name="city" placeholder="City" required>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4" style="padding:6px;">
+                        <input style="width: 80%;;" type="text" class="form-control shadow-sm bg-white rounded" name="State" id="state" placeholder="State">
+                    </div>
+                </div>
+
+
+
+
+                <div class="row" style="">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding: 5px; padding-left: 4.5%;">
+
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4" style="padding:6px; ">
+                        <input style="width: 80%;" class="form-control shadow-sm bg-white rounded" id="postal_code" type="text" name="postal_code" placeholder="Postal/Zip Code" required>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4" style="padding:6px;">
+                        <input style="width: 80%;;" type="text" class="form-control shadow-sm bg-white rounded" name="country" id="country" placeholder="Country" aria-required="true/false">
+                    </div>
+                </div>
+
+
+
+                <!-- mobile  -->
+
+
+                <div class="row">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+                        <b>Mobile Number</b><b style="color: red;">*</b>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4" style="padding:6px;">
+                        <input style="width: 80%;" class="form-control shadow-sm bg-white rounded" id="patient_mobile" type="number" name="patient_mobile" placeholder="Mobile Number" maxlength="10" required>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4"></div>
+                </div>
+
+
+
+
+
+
+
+
+                <!-- adhaar -->
+
+                <div class="row">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+                        <b>Adhaar Number</b><b style="color: red;">*</b>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4" style="padding:6px;">
+                        <input style="width: 80%;" class="form-control shadow-sm bg-blue rounded" id="patient_adhaar" type="number" name="" placeholder="Adhaar Number" required>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4"></div>
+                </div>
+
+                <!-- mail -->
+
+
+                <div class="row">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+                        <b>Mail</b><b style="color: red;">*</b>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4" style="padding:6px;">
+                        <input style="width: 80%;" class="form-control shadow-sm bg-blue rounded" id="patient_mail" type="number" name="" placeholder="Mail" required>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4"></div>
+                </div>
+
+
+
+                <!-- password -->
+
+
+                <div class="row">
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4 " style="padding:5px;  padding-left: 4.5%;">
+                        <b>Password</b><b style="color: red;">*</b>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4" style="padding:6px;">
+                        <input style="width: 80%;" class="form-control shadow-sm bg-blue rounded" id="patient_password" type="number" name="" placeholder="Password" required>
+                    </div>
+                    <div class="col-0 col-sm-4 col-md-4 col-lg-4"></div>
+                </div>
+
+
+                <div class="row" style="margin-top: 5%;">
+                    <div class="col-0  col-sm-6 col-md-6 col-lg-6">
+                        <center><button class="btn btn-primary" onclick="sendJSON()">Register</button></center>
+                    </div>
+                    <div class="col-0  col-sm-6 col-md-6 col-lg-6">
+                        <center><button class="btn btn-primary" onclick="window.location='patient_login.html'">ALready Registered</button></center>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-0 col-md-8 col-lg-2 col-sm-1"></div>
+
+    </div>
+
+
+    </form>
+</body>
+
+</html>

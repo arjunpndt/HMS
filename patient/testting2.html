@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+
+AngularJs $http.post() Service Response Example
+
+</title>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js" integrity="sha256-0YzDSJS0qH+wpvug+Im1cMB9CX919NMtHj0d2VVHPp4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.26/angular-ui-router.min.js"></script>
+
+
+<script type="text/javascript">
+  var data;
+
+var app = angular.module('postserviceApp', ['ngStorage']);
+
+app.controller('postserviceCtrl', function ($scope, $http,$localStorage) {
+  $scope.add=function(){
+    $localStorage.name=data;
+    $localStorage.city="Saharanpur";
+    console.log("add function");
+    console.log($localStorage.name);
+    console.log($localStorage.name.PATIENT_FIRST_NAME);
+  }
+
+  $scope.fetch=function(){
+    console.log($localStorage.name);
+    console.log($localStorage.city);
+
+  }
+
+$scope.name = null;
+
+$scope.age = null;
+
+$scope.adress = null;
+
+$scope.lblMsg = null;
+
+$scope.postdata = function (name, age, adress) {
+
+ data = {
+
+PATIENT_FIRST_NAME: name,
+
+DOB: age,
+
+STREET_ADDRESS: adress
+
+};
+$scope.statusval = $localStorage.name.PATIENT_FIRST_NAME;
+var value=$localStorage.name.PATIENT_FIRST_NAME;
+localStorage.setItem("textvalue",value);
+ var textvalue= localStorage.getItem("textvalue");
+ console.log(textvalue);
+ console.log(textvalue);
+ console.log(textvalue);
+ console.log(textvalue);
+//Call the services
+console.log(data);
+$http.post('http://ff62a4e357d4.ngrok.io/Patient_interface/Patient_registration/', JSON.stringify(data)).then(function (response) {
+
+if (response.data)
+
+$scope.msg = "Post Data Submitted Successfully!";
+
+}, function (response) {
+
+
+
+$scope.statustext = response.statusText;
+
+$scope.headers = response.headers();
+
+});
+
+
+
+};
+$scope.msg = localStorage.getItem("textvalue");;
+
+
+});
+
+</script>
+
+</head>
+
+<body>
+
+<div ng-app="postserviceApp" ng-controller="postserviceCtrl">
+
+<div>
+
+Name : <input ng-model="name" /><br/><br/>
+
+Age : <input ng-model="age" /><br/><br/>
+
+Adress : <input ng-model="adress" /><br/><br/>
+
+<input type="button" value="Send" ng-click="postdata(name, age, adress)" /> <br/><br/>
+
+</div>
+
+<p>Output Message : {{msg}}</p>
+
+<p>StatusCode: {{statusval}}</p>
+
+<p>Status: {{statustext}}</p>
+
+<p>Response Headers: {{headers}}</p>
+<button ng-click="add()">put</button>
+<button onclick="fetch()">put</button>
+
+</div>
+
+</body>
+
+</html>

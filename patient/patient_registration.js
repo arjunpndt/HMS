@@ -6,14 +6,32 @@
         let PATIENT_LAST_NAME = document.querySelector('#last_name');
         let FATHER_NAME = document.querySelector('#patient_father');
         let MOTHER_NAME = document.querySelector('#patient_mother');
-        let GENDER = document.querySelector('input[name="Gender"]');
+            const gen = document.querySelectorAll('input[name="Gender"]');
+            let GENDER;
+            for (const mfo of gen) {
+                if (mfo.checked) {
+                    GENDER = mfo.value;
+                    break;
+                }
+            }
+            console.log(GENDER);
         let BLOOD_GROUP = document.querySelector('#patient_blood');
         let DOB = document.querySelector('#patient_dob');
         let HEIGHT = document.querySelector('#patient_height');
         let WEIGHT = document.querySelector('#patient_weight');
-        let MARITAL_STATUS = document.querySelectorAll('input[name="marital_status"]');
+        const btn = document.querySelector('#btn');
+        // handle click button
+        
+            const mar = document.querySelectorAll('input[name="marital_status"]');
+            let MARITAL_STATUS;
+            for (const sm of mar) {
+                if (sm.checked) {
+                    MARITAL_STATUS = sm.value;
+                    break;
+                }
+            }
         // const Anemia = document.getElementById('Anemia'); 
-
+            console.log(MARITAL_STATUS);
         let Asthma = document.querySelector('#Asthma');
         
         let Bronchitis = document.querySelector('#Bronchitis');
@@ -41,13 +59,13 @@
         // console.log(user_mail) 
         let xhr = new XMLHttpRequest();
 
-        xhr.open("POST", "http://f3fd065efda6.ngrok.io/Patient_interface/patient_registration/", true);
+        xhr.open("POST", "http://15d25afd25b4.ngrok.io/Patient_interface/Patient_registration/", true);
         xhr.setRequestHeader("Content-Type", "application/json");
 
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
 
-                result.innerHTML = JSON.parse(Request.response);
+                // result.innerHTML = JSON.parse(Request.response);
 
             }
         };
@@ -56,26 +74,26 @@
             "PATIENT_LAST_NAME": PATIENT_LAST_NAME.value,
             "FATHER_NAME": FATHER_NAME.value,
             "MOTHER_NAME": MOTHER_NAME.value,
-            " GENDER": GENDER.value,
-            " BLOOD_GROUP": BLOOD_GROUP.value,
+            // "GENDER": GENDER,
+            "BLOOD_GRP": BLOOD_GROUP.value,
             "DOB": DOB.value,
             "HEIGHT": HEIGHT.value,
             "WEIGHT": WEIGHT.value,
-            "MARITAL_STATUS": MARITAL_STATUS.value,
-            "Anemia": Anemia.value,
-            "Asthma": Asthma.value,
-            "Bronchitis": Bronchitis.value,
-            "Chickenpox": Chickenpox.value,
-            "Diabetes": Diabetes.value,
-            "Pneumonia": Pneumonia.value,
-            "Thyroid": Thyroid.value,
-            "Ulcer": Ulcer.value,
+            "MARITAL_STATUS": MARITAL_STATUS,
+            // "Anemia": Anemia.value,
+            // "Asthma": Asthma.value,
+            // "Bronchitis": Bronchitis.value,
+            // "Chickenpox": Chickenpox.value,
+            // "Diabetes": Diabetes.value,
+            // "Pneumonia": Pneumonia.value,
+            // "Thyroid": Thyroid.value,
+            // "Ulcer": Ulcer.value,
             "other": other.value,
             "STREET_ADDRESS": STREET_ADDRESS.value,
             "CITY": CITY.value,
             "STATE": STATE.value,
             "POSTAL_CODE": POSTAL_CODE.value,
-            "Country": Country.value,
+            // "Country": Country.value,
             "MOBILE_NO": MOBILE_NO.value,
             "AADHAR_NO": AADHAR_NO.value,
             "MAIL": MAIL.value,
@@ -83,21 +101,22 @@
         });
 
         xhr.send(data);
-        console.log(data)
+        console.log(data);
+         window.location = "patient_portal.html";
     }
 
 // ui_routing
 
-var app = angular.module('patient', [ "ui.router" ]); 
-app.config(function($stateProvider,$urlRouterProvider, )
- { 
-        $stateProvider 
-        .state('patient_profile', {  
-            url : '/patient_profile', 
-            templateUrl: "patient_profile.login", 
-            // controller : "HomeCtrl"
-        }); 
-         $urlRouterProvider.otherwise("/"); 
+// var app = angular.module('patient', [ "ui.router" ]); 
+// app.config(function($stateProvider,$urlRouterProvider, )
+//  { 
+//         $stateProvider 
+//         .state('patient_profile', {  
+//             url : '/patient_profile', 
+//             templateUrl: "patient_profile.login", 
+//             // controller : "HomeCtrl"
+//         }); 
+//          $urlRouterProvider.otherwise("/"); 
         
-}); 
+// }); 
 

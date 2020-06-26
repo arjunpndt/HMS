@@ -22,6 +22,10 @@
    <!-- font family -->
    <!-- <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'> -->
    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'> 
+   <link href='https://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
+   <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+   <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'> 
+
 
   <script type="text/javascript" src="patient_portal.js"></script>
 
@@ -37,6 +41,29 @@
   padding: 50px;
   font-size: 20px;
 }
+div.portal_img {
+    border-radius: 10px 10px 10px 10px;
+}
+
+div.portal_img:hover {
+  border: 1px solid #777;
+
+}
+
+div.portal_img img {
+ 
+    border-radius: 10px 10px 0px 0px;
+
+}
+
+div.desc {
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px 10px 10px 10px;
+
+  
+
+}
  </style>
  
 
@@ -45,7 +72,7 @@
 <body ng-app="Patient_login" ng-controller="patientCTRL">
 
 
-<nav class="navbar navbar-expand-lg navbar-light"  style="border-top: 1px solid lightgray;"  >
+<nav class="navbar navbar-expand-lg navbar-light"  style="border-top: 1px solid lightgray; " >
     <a class="navbar-brand" href="#">
       <nav class="navbar" >
                
@@ -54,7 +81,7 @@
     <button class="navbar-toggler btn-outline-primary " type="button" data-toggle="collapse" data-target="  #navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">  
      <span class="navbar-toggler-icon"></span>  
     </button>  
-    <div class="collapse navbar-collapse" id="navbarText">  
+    <div class="collapse navbar-collapse" id="navbarText" >  
       <ul class="navbar-nav mr-auto"></ul>
          <ul class="navbar-nav   mt-2 mt-lg-0 " >           
             <li class="nav-item" style=" padding-right: 10px; ">
@@ -67,7 +94,7 @@
                 <a id="about" ui-sref='contactus()' >About</a> 
             </li>
              <li class="nav-item" style=" padding-right: 10px;">
-                <a id="about" ui-sref='contactus()' >Portal</a> 
+                <a id="about" href="../portal/HMS_portal.html" >Portal</a> 
             </li>
              <li class="nav-item" style=" padding-right: 0px;">
                 <a class="nav-link disabled" style="padding:0px; margin:0px;" href="#">Call Now</a>
@@ -81,57 +108,39 @@
 
 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-white nav1 sticky-top shadow bottom p-3 mb-5  rounded" style="border-top: 2px solid lightgray;">
+  <nav class="navbar navbar-expand-lg   nav1 sticky-top shadow bottom p-3 mb-5  rounded" style=" background-color: lightseagreen; color: white;">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#"><b>Patient Portal</b></a>
+  <a class="navbar-brand" href="#" style="color: white;"><b>Patient Portal</b></a>
 
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03" >
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" ui-sref="profile()">Profile <span class="sr-only">(current)</span></a>
+        <a class="nav-link" ui-sref="profile()" style="color: white;">Profile <span class="sr-only" >(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" ui-sref='appointment()'>Appointment</a>
+        <a class="nav-link" ui-sref='appointment()' style="color: white;">Appointment</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" ui-sref='appointment_history()' onclick="Appointment_history()" style="color: white;">Appointment History</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  href="#">Mediacal History</a>
+        <a class="nav-link"  ui_sref="prescription_view()" onclick="prescription_view()" style="color: white;">Prescripton View</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  ui-sref="medical_history()" onclick="medical_history()" style="color: white;">Mediacal History</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline my-2 my-sm-0" type="submit" style=" background-color: white;">Search</button>
     </form>
   </div>
 </nav>
 <div ui-view>
   
 </div>
-<!-- 
-<h1>ID:  {{msg}}</h1><br>
-<h1>FIRST:  {{patient_first_name}}</h1><br>
-<h1>LAST:  {{patient_last_name}}</h1><br>
-<h1>Father:   {{patient_father_name}}</h1><br>
-<h1>Mother:  {{patient_mother_name}}</h1><br>
-<h1>Gender:  {{patient_gender}}</h1><br>
-<h1>{{patient_blood_group}}</h1><br>
-<h1>{{patient_dob}}</h1><br>
-<h1>{{patient__height}}</h1><br>
-<h1>{{patient_weight}}</h1><br>
-<h1>{{}}</h1><br>
-<h1>{{}}</h1><br>
-<h1>{{}}</h1><br>
-<h1>{{}}</h1><br>
-<h1>{{}}</h1><br>
-<h1>{{}}</h1><br>
-<h1>{{}}</h1><br>
-<h1>{{}}</h1><br>
-<h1>{{}}</h1><br>
-<h1>{{}}</h1><br>
-<h1>{{}}</h1><br>
-<h1>{{}}</h1><br>
-<h1>{{}}</h1><br>
-<h1>{{}}</h1><br> -->
+
 </body>
 </html>

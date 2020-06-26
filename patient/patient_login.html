@@ -111,14 +111,14 @@ addEventListener("keyup", function(event) {
           let PASSWORD = document.querySelector('#Password')     
           let xhr = new XMLHttpRequest();
       
-          xhr.open("POST","http://ee1da01d8207.ngrok.io/Patient_interface/Patient_login/", true); 
+          xhr.open("POST","http://15d25afd25b4.ngrok.io/Patient_interface/Patient_login/", true); 
           xhr.setRequestHeader("Content-Type", "application/json"); 
 
           xhr.onreadystatechange = function () { 
               if (xhr.readyState === 4 && xhr.status === 200) {
 
                  Response_data =   JSON.parse(this.responseText);
-                 console.log("Response_data");
+                 console.log(Response_data);
                   document.getElementById("demo").innerHTML =Response_data[0].PATIENT_FIRST_NAME;
 
                   document.getElementById("demo2").innerHTML =Response_data[0].PATIENT_LAST_NAME;
@@ -130,6 +130,8 @@ addEventListener("keyup", function(event) {
           else{
            
             localStorage.setItem("patient_first_name",Response_data[0].PATIENT_FIRST_NAME);
+            var fn=localStorage.getItem("patient_id"); 
+            console.log(fn);
             localStorage.setItem("patient_last_name",Response_data[0].PATIENT_LAST_NAME);
             localStorage.setItem("patient_father_name",Response_data[0].FATHER_NAME);
             localStorage.setItem("patient_mother_name",Response_data[0].MOTHER_NAME);
@@ -162,7 +164,8 @@ addEventListener("keyup", function(event) {
             console.log(mmm);
             localStorage.setItem("patient_password",Response_data[0].PASSWORD);           
             // document.getElementById('save_password').style.display="block";
-            window.location = "patient_registration.html";
+            window.location = "patient_portal.html";
+          
 
 
           }
@@ -178,7 +181,7 @@ addEventListener("keyup", function(event) {
           // localStorage.setItem("patient_first_name",Response_data[0].PATIENT_FIRST_NAME);
          
           console.log("end");
-           // window.location = "patient_registration.html";
+           // window.location = "patient_portal.html";
       }
       
 

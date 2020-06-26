@@ -1,0 +1,28 @@
+<div id="generate_approved_patient_list"></div>
+
+
+<div class="modal fade" id="prescription_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+
+  <!-- Change class .modal-sm to change the size of the modal -->
+  <div class="modal-dialog modal-md" role="document">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel"></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	 <label for="reson_of_rejection">Prescription</label>
+        <input type="text" class="" style="border: 0px; border-bottom: 2px solid lightgray; width: 100%;" placeholder="Write Prescription" name="" id="Write_Prescription">
+      </div>
+      <div class="modal-footer">
+       
+        <button type="button" class="btn btn-danger btn-lg" onclick="submit_prescription()" required>Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
